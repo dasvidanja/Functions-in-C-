@@ -1,0 +1,74 @@
+  //Vending Machine Program
+ //Martin Zanaj
+//ENGR 101
+
+//Libraries to call 
+#include <iostream>
+#include <string>
+using namespace std;
+
+//Will return true if there a positive balance 
+bool money(float cash){
+    
+    if(cash > 0.0){
+        
+        return true;
+    }
+    
+    else{
+        return false;
+    }  
+}
+
+//We check if the user inputs a valid choice 
+bool choice( int number){
+    //Say we have only 3 choices  1,2,3,
+    
+    if(number== 100 or number ==200 or number ==300){
+        return true;
+    }
+    else{
+        return false;
+    }
+    
+}
+
+//we check if the product is available
+bool available(int number, int quantity){
+    
+    if(quantity>0){
+        return true;
+    }
+    else{
+        return false;
+    }
+    
+}
+
+//Success message
+void dispense(){
+    
+    cout<<"The product has been succesfully dispensed."<<endl;
+    }
+
+
+//Simulator of vending machine 
+int main()
+{
+   int quantity  =0; 
+    //Let call the functions one by one and see if we can get a snack?
+    //Check if there is any money
+    if(money(2.00) == 1){
+        //if there is money, check if that the choice is valid
+        if(choice(300) == 1){
+            //if the choice is valid, check if the prodcut is available
+                if(available(300, quantity)){ dispense();}
+            
+                else{cout<<"Sorry; Not available"<<endl;}
+            
+        }else{cout<<"Sorry.Not a valid choice"<<endl;}
+        
+    }else{cout<<"No money; Sorry"<<endl;}
+}
+
+
